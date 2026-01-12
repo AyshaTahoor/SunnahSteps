@@ -2,3 +2,7 @@ Hey there! here i am gonna write all the codes of the website and its gonna be a
 in sha allahhh 
 this week 
 tomorrow
+1. plan your project
+2. divide your work into the week and go in all completely! 
+3. monthy goal, weeekly goals, daily goals 
+these should be interconnected to eachother
