@@ -51,8 +51,9 @@ export async function POST(req: NextRequest) {
       },
       201
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Signup error:', error);
-    return errorResponse(error.message || 'Internal server error', 500);
+    const message = error instanceof Error ? error.message : 'Internal server error';
+    return errorResponse(message, 500);
   }
 }
