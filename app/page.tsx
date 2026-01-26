@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { 
   Search, 
   BookOpen, 
@@ -23,33 +22,6 @@ export default function HomePage() {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const { user, logout } = useAuth();
 
-  const featuredArticles = [
-    {
-      id: 1,
-      title: "Understanding Tawheed: The Foundation of Faith",
-      category: "Aqeedah",
-      excerpt: "Explore the core concept of Islamic monotheism and its profound impact on a believer's life.",
-      image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=80",
-      readTime: "8 min read"
-    },
-    {
-      id: 2,
-      title: "The Science of Wudu: Spiritual & Physical Benefits",
-      category: "Fiqh",
-      excerpt: "Discover the wisdom behind ablution and its effects on both body and soul.",
-      image: "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=800&q=80",
-      readTime: "5 min read"
-    },
-    {
-      id: 3,
-      title: "Prophet Muhammad ﷺ: The Mercy to Mankind",
-      category: "Seerah",
-      excerpt: "Learn about the noble character and teachings of the final messenger.",
-      image: "https://images.unsplash.com/photo-1584286595398-a59f152622c9?w=800&q=80",
-      readTime: "12 min read"
-    }
-  ];
-
   const recentQuizzes = [
     { id: 1, title: "Pillars of Islam", questions: 15, difficulty: "Beginner" },
     { id: 2, title: "Names of Allah", questions: 20, difficulty: "Intermediate" },
@@ -58,14 +30,14 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
+      <div className="min-h-screen bg-slate-50">
         {/* Navigation */}
         <nav className="bg-white shadow-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-linear-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
                   </svg>
@@ -82,9 +54,9 @@ export default function HomePage() {
                   <Home size={18} />
                   <span>Home</span>
                 </a>
-                <a href="#articles" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
+                <a href="#about" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
                   <BookOpen size={18} />
-                  <span>Articles</span>
+                  <span>Our Mission</span>
                 </a>
                 <a href="#quizzes" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
                   <Brain size={18} />
@@ -148,18 +120,21 @@ export default function HomePage() {
             <div className="md:hidden bg-white border-t">
               <div className="px-4 py-3 space-y-3">
                 <a href="#" className="block text-gray-700 hover:text-blue-600 py-2">Home</a>
-                <a href="#articles" className="block text-gray-700 hover:text-blue-600 py-2">Articles</a>
+                <a href="#about" className="block text-gray-700 hover:text-blue-600 py-2">Our Mission</a>
                 <a href="#quizzes" className="block text-gray-700 hover:text-blue-600 py-2">Quizzes</a>
                 <a href="#qa" className="block text-gray-700 hover:text-blue-600 py-2">Q&A</a>
                 {user ? (
                   <div className="pt-3 border-t">
                     <div className="flex items-center space-x-2 mb-3">
-                      <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+                      <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-semibold">
                         {user.name?.charAt(0).toUpperCase()}
                       </div>
-                      <span className="text-gray-700 font-medium">{user.name}</span>
+                      <span className="text-emerald-800 font-medium">{user.name}</span>
                     </div>
-                    <button onClick={logout} className="w-full text-red-600 border border-red-600 px-4 py-2 rounded-lg">
+                    <button
+                      onClick={logout}
+                      className="w-full text-emerald-700 border border-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition"
+                    >
                       Logout
                     </button>
                   </div>
@@ -179,36 +154,33 @@ export default function HomePage() {
         </nav>
 
         {/* Hero Section */}
-        <section className="relative py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 to-teal-600/10"></div>
-          <div className="max-w-7xl mx-auto relative">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Walk the Path of <span className="text-blue-600">Authentic Knowledge</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Learn Islam through verified sources, engage with the community, and strengthen your faith one step at a time.
-              </p>
-              
-              <div className="max-w-2xl mx-auto mb-8">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                  <input
-                    type="text"
-                    placeholder="Search articles, quizzes, questions..."
-                    className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg"
-                  />
-                </div>
+        <section className="relative py-20 px-4 bg-blue-50">
+          <div className="max-w-7xl mx-auto relative text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Walk the Path of <span className="text-blue-600">Authentic Knowledge</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              Learn Islam through verified sources, engage with the community, and strengthen your faith one step at a time.
+            </p>
+            
+            <div className="max-w-2xl mx-auto mb-8">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <input
+                  type="text"
+                  placeholder="Search articles, quizzes, questions..."
+                  className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg"
+                />
               </div>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition text-lg font-medium shadow-lg">
-                  Explore Articles 
-                </button>
-                <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-50 transition text-lg font-medium border-2 border-blue-600">
-                  Take a Quiz
-                </button>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition text-lg font-medium shadow-lg">
+                Explore Articles 
+              </button>
+              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-50 transition text-lg font-medium border-2 border-blue-600">
+                Take a Quiz
+              </button>
             </div>
           </div>
         </section>
@@ -237,56 +209,45 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Featured Articles */}
-        <section id="articles" className="py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Featured Articles</h2>
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">View All →</a>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {featuredArticles.map(article => (
-                <div key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group cursor-pointer">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image 
-                      src={article.image} 
-                      alt={article.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        {article.category}
-                      </span>
-                    </div>
+        {/* About Us Integration Section */}
+        <section id="about" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="md:w-1/2">
+                <h2 className="text-blue-600 font-semibold tracking-wide uppercase mb-2">Our Initiative</h2>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Reviving the Sunnah, One Step at a Time</h3>
+                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                  Sunnah Steps is an educational and community-focused initiative committed to reviving the Sunnah of the Prophet Muhammad ﷺ in daily life through practical application, authentic knowledge, and consistent action.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><X size={14} className="text-blue-600 rotate-45" /></div>
+                    <p className="text-gray-700"><strong>Authentic:</strong> Rooted in the Qur&apos;an and sound Hadith.</p>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                      {article.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <span>{article.readTime}</span>
-                      <button className="text-blue-600 hover:text-blue-700 font-medium">
-                        Read More →
-                      </button>
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><X size={14} className="text-blue-600 rotate-45" /></div>
+                    <p className="text-gray-700"><strong>Practical:</strong> Designed for gradual and sustainable daily practice.</p>
                   </div>
                 </div>
-              ))}
+              </div>
+              <div className="md:w-1/2 bg-blue-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+                <h4 className="text-2xl font-bold mb-4">Our Vision</h4>
+                <p className="text-blue-100 text-lg italic mb-8">
+                  &quot;To see homes and communities shaped by the character, ethics, and mercy of the Sunnah.&quot;
+                </p>
+                <div className="border-t border-blue-400 pt-8">
+                  <h4 className="text-xl font-bold mb-2">Our Mission</h4>
+                  <p className="text-blue-100">To revive the Sunnah through small, consistent steps that lead to lasting transformation.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Quizzes Section */}
-        <section id="quizzes" className="py-16 px-4 bg-linear-to-br from-blue-50 to-teal-50">
+        <section id="quizzes" className="py-16 px-4 bg-blue-50">
           <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Test Your Knowledge</h2>
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">All Quizzes →</a>
-            </div>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Test Your Knowledge</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {recentQuizzes.map(quiz => (
                 <div key={quiz.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition cursor-pointer">
@@ -312,11 +273,7 @@ export default function HomePage() {
         {/* Q&A Preview */}
         <section id="qa" className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Recent Questions</h2>
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Browse All →</a>
-            </div>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Recent Questions</h2>
             <div className="space-y-4">
               {[
                 { question: "What is the difference between Fard and Wajib?", answers: 5, votes: 23 },
@@ -338,45 +295,14 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            
-            <div className="mt-8 text-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
-                Ask a Question
-              </button>
-            </div>
           </div>
         </section>
 
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4">Sunnah Steps</h3>
-                <p className="text-gray-400">Authentic Islamic knowledge for the modern Muslim.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4">Learn</h4>
-                <ul className="space-y-2 text-gray-400">
-                  <li><a href="#" className="hover:text-white transition">Articles</a></li>
-                  <li><a href="#" className="hover:text-white transition">Quizzes</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4">Community</h4>
-                <ul className="space-y-2 text-gray-400">
-                  <li><a href="#" className="hover:text-white transition">Q&A</a></li>
-                  <li><a href="#" className="hover:text-white transition">Forums</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4">About</h4>
-                <ul className="space-y-2 text-gray-400">
-                  <li><a href="#" className="hover:text-white transition">Our Mission</a></li>
-                  <li><a href="#" className="hover:text-white transition">Contact</a></li>
-                </ul>
-              </div>
-            </div>
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-xl font-bold mb-4">Sunnah Steps</h3>
+            <p className="text-gray-400 mb-8">Authentic Islamic knowledge for the modern Muslim.</p>
             <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
             </div>
@@ -384,7 +310,6 @@ export default function HomePage() {
         </footer>
       </div>
 
-      {/* Modals */}
       <LoginModal 
         isOpen={isLoginOpen} 
         onClose={() => setIsLoginOpen(false)} 
