@@ -57,14 +57,14 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
         {/* Navigation */}
         <nav className="bg-white shadow-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-linear-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
                   </svg>
@@ -179,7 +179,7 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <section className="relative py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-teal-600/10"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 to-teal-600/10"></div>
           <div className="max-w-7xl mx-auto relative">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -278,7 +278,7 @@ export default function HomePage() {
         </section>
 
         {/* Quizzes Section */}
-        <section id="quizzes" className="py-16 px-4 bg-gradient-to-br from-blue-50 to-teal-50">
+        <section id="quizzes" className="py-16 px-4 bg-linear-to-br from-blue-50 to-teal-50">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900">Test Your Knowledge</h2>
