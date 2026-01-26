@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { 
   Search, 
   BookOpen, 
@@ -248,10 +249,11 @@ export default function HomePage() {
               {featuredArticles.map(article => (
                 <div key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group cursor-pointer">
                   <div className="relative h-48 overflow-hidden">
-                    <img 
+                    <Image 
                       src={article.image} 
                       alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-300"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
