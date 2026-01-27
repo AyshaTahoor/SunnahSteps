@@ -12,15 +12,21 @@ import {
   MessageCircle, 
   LogOut 
 } from 'lucide-react';
+
+// Context and Components
 import { useAuth } from '@/lib/context/AuthContext';
 import LoginModal from '@/components/auth/LoginModal';
 import SignupModal from '@/components/auth/SignupModal';
+import AboutUsModal from '@/components/about/AboutUsModal';
 
 export default function HomePage() {
+  // 1. UI State for navigation and local modal controls
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const { user, logout } = useAuth();
+
+  // 2. Auth Context Hooks - Fixed: Now inside the function body
+  const { user, logout, showAboutModal, setShowAboutModal } = useAuth();
 
   const recentQuizzes = [
     { id: 1, title: "Pillars of Islam", questions: 15, difficulty: "Beginner" },
@@ -35,7 +41,7 @@ export default function HomePage() {
         <nav className="bg-white shadow-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              {/* Logo */}
+              {/* Logo Section */}
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
@@ -48,7 +54,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Desktop Navigation */}
+              {/* Desktop Nav Links */}
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
                   <Home size={18} />
@@ -68,7 +74,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Auth Buttons */}
+              {/* Auth Actions */}
               <div className="hidden md:flex items-center space-x-4">
                 {user ? (
                   <div className="flex items-center space-x-4">
@@ -105,7 +111,7 @@ export default function HomePage() {
                 )}
               </div>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Trigger */}
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden text-gray-700"
@@ -114,46 +120,9 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden bg-white border-t">
-              <div className="px-4 py-3 space-y-3">
-                <a href="#" className="block text-gray-700 hover:text-blue-600 py-2">Home</a>
-                <a href="#about" className="block text-gray-700 hover:text-blue-600 py-2">Our Mission</a>
-                <a href="#quizzes" className="block text-gray-700 hover:text-blue-600 py-2">Quizzes</a>
-                <a href="#qa" className="block text-gray-700 hover:text-blue-600 py-2">Q&A</a>
-                {user ? (
-                  <div className="pt-3 border-t">
-                    <div className="flex items-center space-x-2 mb-3">
-                      <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-semibold">
-                        {user.name?.charAt(0).toUpperCase()}
-                      </div>
-                      <span className="text-emerald-800 font-medium">{user.name}</span>
-                    </div>
-                    <button
-                      onClick={logout}
-                      className="w-full text-emerald-700 border border-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                ) : (
-                  <div className="pt-3 border-t space-y-2">
-                    <button onClick={() => setIsSignupOpen(true)} className="w-full text-blue-600 border border-blue-600 px-4 py-2 rounded-lg">
-                      Sign Up
-                    </button>
-                    <button onClick={() => setIsLoginOpen(true)} className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg">
-                      Login
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
         </nav>
 
-        {/* Hero Section */}
+        {/* Hero Section with Global Search */}
         <section className="relative py-20 px-4 bg-blue-50">
           <div className="max-w-7xl mx-auto relative text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -169,7 +138,7 @@ export default function HomePage() {
                 <input
                   type="text"
                   placeholder="Search articles, quizzes, questions..."
-                  className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg"
+                  className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg bg-white text-gray-900"
                 />
               </div>
             </div>
@@ -185,31 +154,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">250+</div>
-                <div className="text-gray-600">Articles</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-600">Quizzes</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">1,200+</div>
-                <div className="text-gray-600">Questions</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">5,000+</div>
-                <div className="text-gray-600">Learners</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About Us Integration Section */}
+        {/* Initiative & About Section */}
         <section id="about" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-12 items-center">
@@ -219,14 +164,14 @@ export default function HomePage() {
                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
                   Sunnah Steps is an educational and community-focused initiative committed to reviving the Sunnah of the Prophet Muhammad ﷺ in daily life through practical application, authentic knowledge, and consistent action.
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-4 text-gray-700">
                   <div className="flex items-start gap-3">
-                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><X size={14} className="text-blue-600 rotate-45" /></div>
-                    <p className="text-gray-700"><strong>Authentic:</strong> Rooted in the Qur&apos;an and sound Hadith.</p>
+                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><div className="w-3.5 h-3.5 bg-blue-600 rounded-full" /></div>
+                    <p><strong>Authentic:</strong> Rooted in the Qur&apos;an and sound Hadith.</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><X size={14} className="text-blue-600 rotate-45" /></div>
-                    <p className="text-gray-700"><strong>Practical:</strong> Designed for gradual and sustainable daily practice.</p>
+                    <div className="mt-1 bg-blue-100 p-1 rounded-full"><div className="w-3.5 h-3.5 bg-blue-600 rounded-full" /></div>
+                    <p><strong>Practical:</strong> Designed for gradual and sustainable daily practice.</p>
                   </div>
                 </div>
               </div>
@@ -244,13 +189,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Quizzes Section */}
+        {/* Quizzes Grid */}
         <section id="quizzes" className="py-16 px-4 bg-blue-50">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Test Your Knowledge</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {recentQuizzes.map(quiz => (
-                <div key={quiz.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition cursor-pointer">
+                <div key={quiz.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition cursor-pointer border border-transparent hover:border-blue-200">
                   <div className="flex items-center justify-between mb-4">
                     <Brain className="text-blue-600" size={32} />
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -270,46 +215,19 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Q&A Preview */}
-        <section id="qa" className="py-16 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Recent Questions</h2>
-            <div className="space-y-4">
-              {[
-                { question: "What is the difference between Fard and Wajib?", answers: 5, votes: 23 },
-                { question: "How to perform Salatul Istikhara?", answers: 8, votes: 45 },
-                { question: "Is it permissible to read translation during Salah?", answers: 3, votes: 12 }
-              ].map((item, idx) => (
-                <div key={idx} className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.question}</h3>
-                      <div className="flex items-center space-x-4 text-sm text-gray-600">
-                        <span>{item.answers} Answers</span>
-                        <span>•</span>
-                        <span>{item.votes} Votes</span>
-                      </div>
-                    </div>
-                    <MessageCircle className="text-blue-600" size={24} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12 px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-xl font-bold mb-4">Sunnah Steps</h3>
             <p className="text-gray-400 mb-8">Authentic Islamic knowledge for the modern Muslim.</p>
-            <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <div className="border-t border-gray-800 pt-8 text-gray-400 text-sm">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
             </div>
           </div>
         </footer>
       </div>
 
+      {/* Authentication & Onboarding Modals */}
       <LoginModal 
         isOpen={isLoginOpen} 
         onClose={() => setIsLoginOpen(false)} 
@@ -319,6 +237,12 @@ export default function HomePage() {
         isOpen={isSignupOpen} 
         onClose={() => setIsSignupOpen(false)} 
         onSwitchToLogin={() => { setIsSignupOpen(false); setIsLoginOpen(true); }}
+      />
+      
+      {/* AboutUsModal with Fixed Props */}
+      <AboutUsModal
+        isOpen={showAboutModal}
+        onClose={() => setShowAboutModal(false)}
       />
     </>
   );
