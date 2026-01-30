@@ -18,6 +18,7 @@ import { useAuth } from '@/lib/context/AuthContext';
 import LoginModal from '@/components/auth/LoginModal';
 import SignupModal from '@/components/auth/SignupModal';
 import AboutUsModal from '@/components/about/AboutUsModal';
+import Image from 'next/image';
 
 export default function HomePage() {
   // 1. UI State for navigation and local modal controls
@@ -42,18 +43,20 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               
-              {/* Logo Section - UPDATED PATH */}
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/sunnah-steps-logo.jpeg" 
-                  alt="Sunnah Steps Logo" 
-                  className="h-14 w-auto rounded-md"
-                />
-                <div>
-                  <h1 className="text-xl font-bold text-blue-900 leading-tight">Sunnah Steps</h1>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">One step closer to sunnah</p>
-                </div>
-              </div>
+              {/* Logo Section - UPDATED WITH YOUR PATH */}
+              <div className="flex items-center space-x-3"> 
+                <Image 
+                  src="/sunnah-steps-logo.jpeg"  
+                  alt="Sunnah Steps Logo"
+                  width={56}
+                  height={56}
+                  className="h-14 w-auto rounded-md" 
+                /> 
+                <div> 
+                  <h1 className="text-xl font-bold text-blue-900">Sunnah Steps</h1> 
+                  <p className="text-xs text-gray-600">One step closer to sunnah</p> 
+                </div> 
+              </div>  
 
               {/* Desktop Nav Links */}
               <div className="hidden md:flex items-center space-x-8">
@@ -216,12 +219,28 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Footer */}
+        {/* UPDATED FOOTER SECTION */}
         <footer className="bg-gray-900 text-white py-12 px-4">
-          <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-xl font-bold mb-4">Sunnah Steps</h3>
-            <p className="text-gray-400 mb-8">Authentic Islamic knowledge for the modern Muslim.</p>
-            <div className="border-t border-gray-800 pt-8 text-gray-400 text-sm">
+          <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+            <div>
+              <div className="flex items-center space-x-3 mb-4 justify-center">
+                <Image 
+                  src="/sunnah-steps-logo.jpeg" 
+                  alt="Sunnah Steps Logo"
+                  width={40}
+                  height={40} 
+                  className="h-10 w-auto brightness-0 invert"
+                />
+                <h3 className="text-xl font-bold">Sunnah Steps</h3>
+              </div>
+              <p className="text-gray-400 text-sm">
+                One step closer to sunnah
+              </p>
+              <p className="text-gray-400 text-sm mt-2">
+                Authentic Islamic knowledge for the modern Muslim.
+              </p>
+            </div>
+            <div className="border-t border-gray-800 mt-8 pt-8 w-full text-center text-gray-500 text-xs">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
             </div>
           </div>
