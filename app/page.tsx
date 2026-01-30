@@ -50,7 +50,8 @@ export default function HomePage() {
                   alt="Sunnah Steps Logo"
                   width={56}
                   height={56}
-                  className="h-14 w-auto rounded-md" 
+                  className="h-14 w-auto rounded-md"
+                  priority 
                 /> 
                 <div> 
                   <h1 className="text-xl font-bold text-blue-900">Sunnah Steps</h1> 
