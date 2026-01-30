@@ -11,7 +11,7 @@ interface AboutUsModalProps {
 
 export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
   // Logic: Only render if isOpen is true
-  if (!isOpen) return null;
+  if (!isOpen) return
 
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
