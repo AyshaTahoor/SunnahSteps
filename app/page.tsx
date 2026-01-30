@@ -48,14 +48,14 @@ export default function HomePage() {
                 <Image 
                   src="/sunnah-steps-logo.jpeg"  
                   alt="Sunnah Steps Logo"
-                  width={56}
-                  height={56}
-                  className="h-14 w-auto rounded-md"
+                  width={80}
+                  height={80}
+                  className="h-16 w-auto rounded-lg shadow-sm"
                   priority 
                 /> 
                 <div> 
-                  <h1 className="text-xl font-bold text-blue-900">Sunnah Steps</h1> 
-                  <p className="text-xs text-gray-600">One step closer to sunnah</p> 
+                  <h1 className="text-2xl font-bold text-blue-900">Sunnah Steps</h1> 
+                  <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">One step closer to sunnah</p> 
                 </div> 
               </div>  
 
@@ -224,19 +224,19 @@ export default function HomePage() {
         <footer className="bg-gray-900 text-white py-12 px-4">
           <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
             <div>
-              <div className="flex items-center space-x-3 mb-4 justify-center">
+              <div className="flex items-center space-y-4 mb-6 justify-center">
                 <Image 
                   src="/sunnah-steps-logo.jpeg" 
                   alt="Sunnah Steps Logo"
-                  width={40}
-                  height={40} 
-                  className="h-10 w-auto brightness-0 invert"
+                  width={60}
+                  height={60} 
+                  className="h-12 w-auto rounded-md opacity-90 brightness-0 invert"
                 />
                 <h3 className="text-xl font-bold">Sunnah Steps</h3>
-              </div>
-              <p className="text-gray-400 text-sm">
+               <p className="text-gray-400 text-sm">
                 One step closer to sunnah
               </p>
+              </div>
               <p className="text-gray-400 text-sm mt-2">
                 Authentic Islamic knowledge for the modern Muslim.
               </p>
