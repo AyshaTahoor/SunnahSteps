@@ -41,16 +41,17 @@ export default function HomePage() {
         <nav className="bg-white shadow-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              {/* Logo Section */}
+              
+              {/* Logo Section - UPDATED PATH */}
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
-                  </svg>
-                </div>
+                <img 
+                  src="/sunnah-steps-logo.jpeg" 
+                  alt="Sunnah Steps Logo" 
+                  className="h-14 w-auto rounded-md"
+                />
                 <div>
-                  <h1 className="text-xl font-bold text-blue-900">Sunnah Steps</h1>
-                  <p className="text-xs text-gray-600">Initiative</p>
+                  <h1 className="text-xl font-bold text-blue-900 leading-tight">Sunnah Steps</h1>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">One step closer to sunnah</p>
                 </div>
               </div>
 
@@ -239,7 +240,6 @@ export default function HomePage() {
         onSwitchToLogin={() => { setIsSignupOpen(false); setIsLoginOpen(true); }}
       />
       
-      {/* AboutUsModal with Fixed Props */}
       <AboutUsModal
         isOpen={showAboutModal}
         onClose={() => setShowAboutModal(false)}
