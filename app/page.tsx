@@ -234,11 +234,12 @@ export default function HomePage() {
                   className="h-10 w-auto rounded-md opacity-90 brightness-0 invert"
                 />
                 <h3 className="text-2xl font-bold">Sunnah Steps</h3>
+                </div>
                 {/* Tagline grouped under the Brand name */}
-               <p className="text-gray-400 text-sm">
+               <p className="text-blue-200/60 text-sm font-medium tracking-wide">
                 One step closer to sunnah
               </p>
-              </div>
+            </div>
               {/* Description Section */}
               <p className="text-gray-400 text-sm mt-2">
                 Authentic Islamic knowledge for the modern Muslim.
@@ -247,7 +248,7 @@ export default function HomePage() {
             <div className="border-t border-gray-800 mt-8 pt-8 w-full text-center text-gray-500 text-xs">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
             </div>
-            </div>
+              
           </div>
         </footer>
       </div>
