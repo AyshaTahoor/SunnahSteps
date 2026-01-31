@@ -48,8 +48,8 @@ export default function HomePage() {
                 <Image 
                   src="/sunnah-steps-logo.jpeg"  
                   alt="Sunnah Steps Logo"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="h-16 w-auto rounded-lg shadow-sm"
                   priority 
                 /> 
