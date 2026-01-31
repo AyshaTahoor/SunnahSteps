@@ -46,7 +46,7 @@ export default function HomePage() {
               {/* Logo Section - UPDATED WITH YOUR PATH */}
               <div className="flex items-center space-x-3"> 
                 <Image 
-                  src="/sunnah-steps-logo.jpeg"  
+                  src="/sunnah-steps-logo.png"  
                   alt="Sunnah Steps Logo"
                   width={100}
                   height={100}
@@ -226,7 +226,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center space-y-4 mb-6 justify-center">
                 <Image 
-                  src="/sunnah-steps-logo.jpeg" 
+                  src="/sunnah-steps-logo.png" 
                   alt="Sunnah Steps Logo"
                   width={60}
                   height={60} 
