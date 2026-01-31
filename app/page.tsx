@@ -224,25 +224,29 @@ export default function HomePage() {
         <footer className="bg-gray-900 text-white py-12 px-4">
           <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
             <div>
+            <div className="flex flex-col items-center mb-6">
               <div className="flex items-center space-y-4 mb-6 justify-center">
                 <Image 
                   src="/sunnah-steps-logo.png" 
                   alt="Sunnah Steps Logo"
                   width={60}
                   height={60} 
-                  className="h-12 w-auto rounded-md opacity-90 brightness-0 invert"
+                  className="h-10 w-auto rounded-md opacity-90 brightness-0 invert"
                 />
-                <h3 className="text-xl font-bold">Sunnah Steps</h3>
+                <h3 className="text-2xl font-bold">Sunnah Steps</h3>
+                {/* Tagline grouped under the Brand name */}
                <p className="text-gray-400 text-sm">
                 One step closer to sunnah
               </p>
               </div>
+              {/* Description Section */}
               <p className="text-gray-400 text-sm mt-2">
                 Authentic Islamic knowledge for the modern Muslim.
               </p>
             </div>
             <div className="border-t border-gray-800 mt-8 pt-8 w-full text-center text-gray-500 text-xs">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
+            </div>
             </div>
           </div>
         </footer>
