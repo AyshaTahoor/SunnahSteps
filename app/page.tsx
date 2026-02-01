@@ -225,16 +225,16 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
             <div>
             <div className="flex flex-col items-center mb-6">
-              <div className="flex items-center space-y-4 mb-6 justify-center">
+              < className="flex items-center space-y-4 mb-6 justify-center">
                 <Image 
                   src="/sunnah-steps-logo.png" 
                   alt="Sunnah Steps Logo"
                   width={60}
                   height={60} 
-                  className="h-10 w-auto rounded-md opacity-90 brightness-0 invert"
+                  className="h-10 w-auto rounded-md opacity-90 brightness-0 invert""
                 />
                 <h3 className="text-2xl font-bold">Sunnah Steps</h3>
-                </div>
+                
                 {/* Tagline grouped under the Brand name */}
                <p className="text-blue-200/60 text-sm font-medium tracking-wide">
                 One step closer to sunnah
@@ -248,7 +248,7 @@ export default function HomePage() {
             <div className="border-t border-gray-800 mt-8 pt-8 w-full text-center text-gray-500 text-xs">
               <p>&copy; 2026 Sunnah Steps Initiative. All rights reserved.</p>
             </div>
-              
+            
           </div>
         </footer>
       </div>
