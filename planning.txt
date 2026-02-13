@@ -6,3 +6,4 @@ tomorrow
 2. divide your work into the week and go in all completely! 
 3. monthy goal, weeekly goals, daily goals 
 these should be interconnected to eachother
+strt implementing features
