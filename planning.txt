@@ -7,3 +7,4 @@ tomorrow
 3. monthy goal, weeekly goals, daily goals 
 these should be interconnected to eachother
 strt implementing features
+have started executing the project"
