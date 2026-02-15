@@ -231,7 +231,7 @@ export default function HomePage() {
                   alt="Sunnah Steps Logo"
                   width={60}
                   height={60} 
-                  className="h-10 w-auto rounded-md opacity-90 brightness-0 invert""
+                  className="h-10 w-auto rounded-md opacity-90 brightness-0 invert"
                 />
                 <h3 className="text-2xl font-bold">Sunnah Steps</h3>
                 
