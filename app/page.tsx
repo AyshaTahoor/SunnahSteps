@@ -160,7 +160,7 @@ export default function HomePage() {
         </section>
 
         {/* Initiative & About Section */}
-        <section id="about" className="py-20 bg-white">
+        <sectioon id="about" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="md:w-1/2">
@@ -192,7 +192,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </sectioon>
 
         {/* Quizzes Grid */}
         <section id="quizzes" className="py-16 px-4 bg-blue-50">
