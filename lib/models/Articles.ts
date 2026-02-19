@@ -1,18 +1,22 @@
-import mongoose, { Schema, model, models } from 'mongoose';
+import { Schema, model, models, Document, Types } from 'mongoose';
 
-export interface IArticle {
-  _id: string;
+export interface IArticle extends Document {
   title: string;
   slug: string;
   excerpt: string;
   content: string;
   category: string;
   image: string;
-  author: mongoose.Types.ObjectId;
+  author: Types.ObjectId | {
+    _id: string;
+    name: string;
+    email?: string;
+  };
   readTime: number;
   tags: string[];
   views: number;
   published: boolean;
+  featured: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -42,7 +46,7 @@ const ArticleSchema = new Schema<IArticle>(
     category: {
       type: String,
       required: true,
-      enum: ['Aqeedah', 'Fiqh', 'Seerah', 'Tafseer', 'Hadith', 'Islamic History', 'Contemporary Issues'],
+      enum: ['Aqeedah', 'Fiqh', 'Seerah', 'Tafseer', 'Hadith', 'Islamic History', 'Contemporary Issues', 'Spirituality'],
     },
     image: {
       type: String,
@@ -66,6 +70,10 @@ const ArticleSchema = new Schema<IArticle>(
     },
     published: {
       type: Boolean,
+      default: true,
+    },
+    featured: {
+      type: Boolean,
       default: false,
     },
   },
@@ -73,5 +81,16 @@ const ArticleSchema = new Schema<IArticle>(
     timestamps: true,
   }
 );
+
+// Auto-populate author
+ArticleSchema.pre('find', function () {
+  this.populate({ path: 'author', select: 'name email' });
+});
+ArticleSchema.pre('findOne', function () {
+  this.populate({ path: 'author', select: 'name email' });
+});
+ArticleSchema.pre('findOneAndUpdate', function () {
+  this.populate({ path: 'author', select: 'name email' });
+});
 
 export default models.Article || model<IArticle>('Article', ArticleSchema);
