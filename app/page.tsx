@@ -58,6 +58,10 @@ export default function HomePage() {
                   <BookOpen size={18} />
                   <span>Our Mission</span>
                 </a>
+                <a href="/articles" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
+                <BookOpen size = {18} />
+                <span>Articles</span>
+                </a>
                 <a href="#quizzes" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
                   <Brain size={18} />
                   <span>Quizzes</span>
@@ -180,6 +184,12 @@ export default function HomePage() {
               </button>
               <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-50 transition text-lg font-medium border-2 border-blue-600">
                 Take a Quiz
+              </button>
+              <button
+              onClick={() => window.location.href = '/articles'}
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-700 transition text-lg font-medium shadow-lg"
+              >
+                Explore Articles
               </button>
             </div>
           </div>
