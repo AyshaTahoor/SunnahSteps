@@ -160,7 +160,7 @@ export default function HomePage() {
         </section>
 
         {/* Initiative & About Section */}
-        <sectioon id="about" className="py-20 bg-white">
+        <section id="about" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="md:w-1/2">
@@ -192,7 +192,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </sectioon>
+        </section>
 
         {/* Quizzes Grid */}
         <section id="quizzes" className="py-16 px-4 bg-blue-50">
@@ -223,9 +223,8 @@ export default function HomePage() {
         {/* UPDATED FOOTER SECTION */}
         <footer className="bg-gray-900 text-white py-12 px-4">
           <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div>
             <div className="flex flex-col items-center mb-6">
-              < className="flex items-center space-y-4 mb-6 justify-center">
+              <div className="flex items-center space-y-4 mb-6 justify-center">
                 <Image 
                   src="/sunnah-steps-logo.png" 
                   alt="Sunnah Steps Logo"
