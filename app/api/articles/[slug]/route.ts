@@ -46,8 +46,6 @@ export async function DELETE(
       return errorResponse('No token provided', 401);
     }
 
-    // Optional: Add admin check logic here by decoding and validating the token.
-
     const article = await Article.findOneAndDelete({ slug: params.slug });
     if (!article) {
       return errorResponse('Article not found', 404);
@@ -75,11 +73,8 @@ export async function PUT(
       return errorResponse('No token provided', 401);
     }
 
-    // Optional: Add admin check logic here by decoding and validating the token.
-
     const body = await req.json();
 
-    // Prevent accidental slug overwrite
     if ('slug' in body) {
       delete body.slug;
     }

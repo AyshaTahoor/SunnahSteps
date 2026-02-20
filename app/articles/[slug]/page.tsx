@@ -69,7 +69,6 @@ export default function ArticleDetailPage() {
         console.log('Share failed:', error);
       }
     } else {
-      // Fallback: copy to clipboard
       navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
     }
@@ -77,7 +76,6 @@ export default function ArticleDetailPage() {
 
   const handleBookmark = () => {
     setBookmarked(!bookmarked);
-    // TODO: Save to user's bookmarks in database
     alert(bookmarked ? 'Removed from bookmarks' : 'Added to bookmarks');
   };
 
