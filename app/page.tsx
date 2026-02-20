@@ -15,12 +15,14 @@ import {
 import { useAuth } from '@/lib/context/AuthContext';
 import LoginModal from '@/components/auth/LoginModal';
 import SignupModal from '@/components/auth/SignupModal';
+import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const { user, logout } = useAuth();
+  const router = useRouter();
 
   const recentQuizzes = [
     { id: 1, title: "Pillars of Islam", questions: 15, difficulty: "Beginner" },
