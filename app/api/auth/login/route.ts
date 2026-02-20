@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import connectDB from '@/lib/db/mongodb';
-import User from '@/lib/models/User';
+import User from '@/lib/models/user';
 import { comparePassword, generateToken } from '@/lib/utils/auth';
 import { successResponse, errorResponse } from '@/lib/utils/api';
 

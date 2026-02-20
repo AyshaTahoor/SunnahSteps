@@ -56,6 +56,14 @@ export default function HomePage() {
                   <Home size={18} />
                   <span>Home</span>
                 </a>
+                {user && ( 
+                  <a href = "/dashboard" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
+                    <span className="flex items-center space-x-1">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg>
+                      Dashboard
+                    </span>
+                  </a>
+                )}
                 <a href="#about" className="text-gray-700 hover:text-blue-600 flex items-center space-x-1 transition">
                   <BookOpen size={18} />
                   <span>Our Mission</span>
@@ -129,6 +137,9 @@ export default function HomePage() {
                 <a href="#about" className="block text-gray-700 hover:text-blue-600 py-2">Our Mission</a>
                 <a href="#quizzes" className="block text-gray-700 hover:text-blue-600 py-2">Quizzes</a>
                 <a href="#qa" className="block text-gray-700 hover:text-blue-600 py-2">Q&A</a>
+                {user && (
+                  <a href = "/dashboard" className="text-gray-700 hover:text-blue-600 py-2">Dashboard</a>
+                )}
                 {user ? (
                   <div className="pt-3 border-t">
                     <div className="flex items-center space-x-2 mb-3">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Clock, Eye, Calendar, ArrowLeft, Share2, Bookmark, Loader2, User } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 interface Article {
   _id: string;
@@ -25,13 +26,39 @@ interface Article {
 export default function ArticleDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { user, token } = useAuth();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [bookmarked, setBookmarked] = useState(false);
+  const [startTime, setStartTime] = useState<number>(0);
 
   useEffect(() => {
     fetchArticle();
   }, [params.slug]);
+
+  useEffect(() => {
+    setStartTime(Date.now());
+
+    return () => {
+      // Track reading time when user leaves
+      if (article && token) {
+        const timeSpent = Math.round((Date.now() - startTime) / 1000);
+        if (timeSpent > 10) { // Only track if spent more than 10 seconds
+          fetch('/api/dashboard/track-read', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              articleId: article._id,
+              timeSpent,
+            }),
+          });
+        }
+      }
+    };
+  }, [article, token]);
 
   const fetchArticle = async () => {
     setLoading(true);
